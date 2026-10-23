@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Reservation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">🚆 RailReserve</div>
+        <p>Railway Reservation Management System</p>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <h1>Railway Reservation System</h1>
+            <p>Book tickets, manage reservations, and track the waiting list.</p>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <span>Total Seats</span>
+                <h2 id="totalSeats">3</h2>
+            </div>
+            <div class="stat-card">
+                <span>Booked Seats</span>
+                <h2 id="bookedSeats">0</h2>
+            </div>
+            <div class="stat-card">
+                <span>Available Seats</span>
+                <h2 id="availableSeats">3</h2>
+            </div>
+            <div class="stat-card">
+                <span>Waiting List</span>
+                <h2 id="waitingCount">0</h2>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Book a Ticket</h2>
+
+            <form id="bookingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="passengerName">Passenger Name</label>
+                        <input type="text" id="passengerName"
+                               placeholder="Enter passenger name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passengerAge">Age</label>
+                        <input type="number" id="passengerAge"
+                               min="1" max="120"
+                               placeholder="Enter age" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="trainName">Train Name</label>
+                        <input type="text" id="trainName"
+                               placeholder="Enter train name" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn primary">
+                    Book Ticket
+                </button>
+            </form>
+
+            <p id="message" class="message" role="status"
+               aria-live="polite"></p>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <h2>Confirmed Reservations</h2>
+                <span class="tag confirmed">Confirmed</span>
+            </div>
+
+            <div id="reservationsList" class="passenger-list">
+                <p class="empty">No confirmed reservations yet.</p>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <h2>Waiting List</h2>
+                <span class="tag waiting">FIFO Queue</span>
+            </div>
+
+            <div id="waitingList" class="passenger-list">
+                <p class="empty">Waiting list is empty.</p>
+            </div>
+        </section>
+
+        <section class="panel cancel-panel">
+            <h2>Cancel Reservation</h2>
+
+            <form id="cancelForm" class="cancel-form">
+                <div class="form-group">
+                    <label for="cancelId">Passenger ID</label>
+                    <input type="number" id="cancelId"
+                           min="1" placeholder="Enter passenger ID"
+                           required>
+                </div>
+
+                <button type="submit" class="btn danger">
+                    Cancel Ticket
+                </button>
+            </form>
+        </section>
+
+        <section class="panel availability-panel">
+            <h2>Seat Availability</h2>
+            <div class="progress-track">
+                <div id="seatProgress" class="progress-fill"></div>
+            </div>
+            <p id="availabilityText">3 out of 3 seats available.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>RailReserve | DSA Mini Project — Queue and Linked List Concepts</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
